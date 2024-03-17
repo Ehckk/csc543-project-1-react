@@ -25,9 +25,11 @@ function LoginForm() {
                 />
             </div>
             <div className="form-buttons">
-                <button type="submit">
-                    Log In
-                </button>
+                <Components.Button
+                    type={"submit"}
+                    text={"Log In"}
+                    size={"large"}
+                />
             </div>
             <p>Don't have an account? <Link to={"/register"}>Create one</Link></p>
         </Form>

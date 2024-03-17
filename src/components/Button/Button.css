@@ -1,0 +1,19 @@
+button {
+    appearance: none;
+    outline: none;
+    border-color: var(--b-0);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: .5rem;
+    background-color: var(--b-1);
+    color: var(--l-2)
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+}
+
+.btn-large {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.125rem;
+}
