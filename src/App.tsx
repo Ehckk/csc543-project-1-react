@@ -20,7 +20,8 @@ const router = createBrowserRouter([
 				element: <Forms.LoginForm/>
 			},
 			{
-				path: "register"
+				path: "register",
+				element: <Forms.RegisterForm/>
 			}
 		]
 	},

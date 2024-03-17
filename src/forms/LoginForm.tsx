@@ -7,7 +7,6 @@ function LoginForm() {
         <Form 
             name="login" 
             method="post" 
-            action="/login" 
             id="login-form" 
             className="credentials-form"
         >
@@ -31,7 +30,7 @@ function LoginForm() {
                     size={"large"}
                 />
             </div>
-            <p>Don't have an account? <Link to={"/register"}>Create one</Link></p>
+            <p>Don't have an account? <Link to={"/auth/register"}>Create one</Link></p>
         </Form>
     )
 }
