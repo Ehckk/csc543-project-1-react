@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import Forms from "./forms"
 import Layouts from './layouts'
+import Router from './routes'
 
 const router = createBrowserRouter([
 	{
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "login",
-				element: <Forms.LoginForm/>
+				element: <Forms.LoginForm/>,
+				action: Router.login.action
 			},
 			{
 				path: "register",
