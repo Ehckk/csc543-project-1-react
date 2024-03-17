@@ -1,7 +1,7 @@
 import { ActionFunctionArgs, redirect } from "react-router-dom";
 import { fetchFromApi } from "../../api";
 import Timeline from "./Timeline/Timeline";
-import { CreatePost } from "../../types";
+import { CreatePost, PostPartial } from "../../types";
 
 async function action(args: ActionFunctionArgs) {
     console.log(args);
@@ -25,12 +25,12 @@ async function loader() {
     if (!token) {
         return redirect("/auth/login")
     }
-    const posts = await fetchFromApi({
+    const {data} = await fetchFromApi<PostPartial[]>({
         endpoint: "posts",
         method: "GET",
         token: true
     })
-    return posts
+    return data
 }
 
 export default {

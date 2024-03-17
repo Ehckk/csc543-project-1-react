@@ -18,7 +18,6 @@ function PostForm(props: PostFormProps) {
     }
     console.log(fieldMsg);
     
-
     return (
         <Form 
             name={"post"}
