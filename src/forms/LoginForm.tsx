@@ -6,6 +6,7 @@ import "./Forms.css"
 function LoginForm() {
     const errors = useActionData() as ActionData<Credentials>
     let formMsg = ""
+    let formMsgClass = ""
     if (errors) {
         if ("message" in errors) {
             formMsg = errors["message"]
@@ -13,10 +14,10 @@ function LoginForm() {
     }
     return (
         <Form 
-            name="login" 
-            method="post" 
-            id="login-form" 
-            className="credentials-form"
+            name={"login"} 
+            method={"post"} 
+            id={"login-form"} 
+            className={"credentials-form"}
         >
             <h1 className="form-title">Log In</h1>
             <p className="form-message">{formMsg}</p>

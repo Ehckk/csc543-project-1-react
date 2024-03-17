@@ -1,5 +1,11 @@
-import { redirect } from "react-router-dom";
+import { ActionFunctionArgs, redirect } from "react-router-dom";
 import { fetchFromApi } from "../api";
+
+async function action(args: ActionFunctionArgs) {
+    console.log({ args });
+    return
+}
+
 
 async function loader() {
     const token = localStorage.getItem("access")
@@ -8,11 +14,13 @@ async function loader() {
     }
     const posts = await fetchFromApi({
         endpoint: "posts",
-        method: "GET" 
+        method: "GET",
+        token: true
     })
     return posts
 }
 
 export default {
+    action,
     loader
 }

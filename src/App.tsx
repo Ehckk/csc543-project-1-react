@@ -9,8 +9,15 @@ import Router from './routes'
 const router = createBrowserRouter([
 	{
 		path: "/",
-		loader: Router.home.loader,
-		element: <></>
+		action: Router.home.action,
+		element: <Layouts.Home/>,
+		children: [
+
+		]
+	},
+	{
+		path: "/logout",
+		loader: Router.logout.loader
 	},
 	{
 		path: "/auth",

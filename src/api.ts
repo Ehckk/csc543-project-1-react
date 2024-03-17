@@ -6,16 +6,22 @@ interface ApiArgs<Req> {
     values?: Req
     endpoint: string
     method: "GET" | "POST"
+    token?: boolean
 }
 
 export async function fetchFromApi<Req=null, Res extends ApiResponse=ApiResponse>(args: ApiArgs<Req>) {
-    const { values, endpoint, method } = args
+    const { values, endpoint, method, token } = args
     console.log(values)
     const url = [BASE_API_URL, endpoint].join("/")
+    const headers: HeadersInit = {
+        "Content-Type": "application/json"
+    }
+    if (token) {
+        const token = localStorage.getItem("access")
+        headers["Authorization"] = `Bearer ${token}`
+    }
     const params: RequestInit = {
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers,
         method
     }
     if (method !== "GET") {
