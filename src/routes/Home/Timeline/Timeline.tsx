@@ -1,9 +1,11 @@
-import { useActionData } from "react-router-dom";
+import { useActionData, useLoaderData } from "react-router-dom";
+import Components from "../../../components";
 import Forms from "../../../forms";
+import { ActionData, CreatePost, PostPartial } from "../../../types";
 import "./Timeline.css"
-import { ActionData, CreatePost } from "../../../types";
 
 function Timeline() {
+    const posts = useLoaderData() as PostPartial[]
     const errors = useActionData() as ActionData<CreatePost>
 
     return (
@@ -15,6 +17,15 @@ function Timeline() {
                 action={"/posts"}
                 errors={errors}
             />
+            {posts.map((post) => {
+                const {post_id} = post
+                return (
+                    <Components.Post 
+                        key={post_id}
+                        post={post}
+                    />
+                )
+            })}
         </div>
     )
 }

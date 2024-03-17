@@ -20,12 +20,12 @@ interface PostPartial {
     content: string
     created: string
     author_id: number 
+    author: User
     likes: { user_id: number }[]
     reply_count: number
 }
 
 interface Post extends PostPartial {
-    author: User | null
     replies: PostPartial[]
 }
 

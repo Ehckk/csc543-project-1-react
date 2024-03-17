@@ -16,7 +16,6 @@ function PostForm(props: PostFormProps) {
             fieldMsg = errors.content
         }
     }
-    console.log(fieldMsg);
     
     return (
         <Form 
@@ -33,6 +32,7 @@ function PostForm(props: PostFormProps) {
                     name="content"
                     aria-label="content"
                     placeholder="What's cooking...?"
+                    defaultValue=""
                 />
             </div>
             <div className="form-buttons">

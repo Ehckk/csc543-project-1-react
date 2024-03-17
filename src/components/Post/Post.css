@@ -1,0 +1,43 @@
+.post {
+    margin: .5rem 0;
+    padding: 1rem;
+    background-color: var(--l-2);
+    box-shadow: 0 1px 3px var(--g-0);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.post:first-of-type {
+    margin-top: 1.5rem;
+}
+
+.post-partial {
+    margin: .5rem 0;
+}
+
+.post-content {
+    margin: .25rem 0;
+    font-size: 1.25rem;
+}
+
+.post-engagement {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-interacts {
+    display: flex;
+    gap: 1rem;
+}
+
+.likes, .replies {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.like-count, .reply-count {
+    margin-bottom: 0;
+}
