@@ -1,6 +1,6 @@
 import login from "./login"
 import logout from "./logout"
-import home from "./home"
+import home from "./Home"
 import register from "./register"
 
 

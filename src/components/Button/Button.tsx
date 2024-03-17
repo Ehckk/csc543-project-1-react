@@ -11,15 +11,16 @@ interface ButtonProps {
     type: ButtonHTMLAttributes<HTMLButtonElement>["type"]
     text: string
     size: ButtonSize
+    click?: () => void
 }
 
 function Button(props: ButtonProps) {
-    const { type, text, size } = props
+    const { type, text, size, click } = props
 
     const className = ButtonSizeClassName[size]
 
     return (
-        <button type={type} className={className}>
+        <button type={type} className={className} onClick={click}>
             {text}
         </button>
     )

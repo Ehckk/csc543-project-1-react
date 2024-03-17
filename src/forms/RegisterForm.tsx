@@ -26,22 +26,26 @@ function RegisterForm() {
                     type={"text"}
                     name={"username"}
                     label={"Username"}
+                    errors={errors}
                 />
                 <Components.Input
                     type={"text"}
                     name={"display_name"}
                     label={"display-name"}
                     placeholder={"Name"}
+                    errors={errors}
                 />
                 <Components.Input
                     type={"password"}
                     name={"password"}
                     label={"Password"}
+                    errors={errors}
                 />
                 <Components.Input
                     type={"password"}
                     name={"confirm"}
                     label={"Confirm Password"}
+                    errors={errors}
                 />
             </div>
             <div className="form-buttons">

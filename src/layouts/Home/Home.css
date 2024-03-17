@@ -1,0 +1,15 @@
+.home {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    overflow-y: auto;
+    min-width: clamp(32rem, 50%, 40rem);
+    background-color: blue;
+}

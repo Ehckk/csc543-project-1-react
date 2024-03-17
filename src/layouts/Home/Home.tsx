@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Components from "../../components";
+import "./Home.css"
 
 
 function Home() {
     return (
-        <Link to={"/logout"}>
-            Logout
-        </Link>
+        <div className="home">
+            <Components.Navbar/>
+            {/* <!-- Sidebar Probably --> */}
+            <main className="content">
+                <Outlet/>
+            </main>
+        </div>
     )
 }
 

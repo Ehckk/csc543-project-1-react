@@ -1,0 +1,7 @@
+.header-top {
+    padding: .5rem;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--l-1);
+}

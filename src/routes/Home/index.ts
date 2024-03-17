@@ -1,5 +1,5 @@
 import { ActionFunctionArgs, redirect } from "react-router-dom";
-import { fetchFromApi } from "../api";
+import { fetchFromApi } from "../../api";
 
 async function action(args: ActionFunctionArgs) {
     console.log({ args });
