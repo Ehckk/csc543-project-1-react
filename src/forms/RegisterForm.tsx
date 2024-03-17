@@ -1,8 +1,17 @@
-import { Form, Link } from "react-router-dom"
+import { Form, Link, useActionData } from "react-router-dom"
 import Components from "../components"
 import "./Forms.css"
+import { ActionData, Registration } from "../types"
 
 function RegisterForm() {
+    const errors = useActionData() as ActionData<Registration>
+
+    let formMsg = ""
+    if (errors) {
+        if ("message" in errors) {
+            formMsg = errors["message"]
+        }
+    }
     return (
         <Form 
             name="register"
@@ -11,6 +20,7 @@ function RegisterForm() {
             className="credentials-form"
         >
             <h1 className="form-title">Sign Up</h1>
+            <p className="form-message">{formMsg}</p>
             <div className="form-body">
                 <Components.Input
                     type={"text"}

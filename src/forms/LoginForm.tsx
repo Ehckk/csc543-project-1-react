@@ -5,8 +5,8 @@ import "./Forms.css"
 
 function LoginForm() {
     const errors = useActionData() as ActionData<Credentials>
+
     let formMsg = ""
-    let formMsgClass = ""
     if (errors) {
         if ("message" in errors) {
             formMsg = errors["message"]

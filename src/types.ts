@@ -4,18 +4,22 @@ interface User {
     display_name: string
 }
 
+interface ApiResponse {
+    message: string
+}
+
+interface Token extends ApiResponse {
+    access: string
+}
+
 interface Credentials {
     username?: string
     password?: string
 }
 
-interface ApiResponse {
-    message: string
-}
-
 interface Registration extends Credentials {
-    confirm: string
-    display_name: string
+    confirm?: string
+    display_name?: string
 } 
 
 interface CreatePost {
@@ -51,5 +55,6 @@ export type {
     CreatePost,
     ApiResponse,
     FormErrors,
-    ActionData
+    ActionData,
+    Token
 }

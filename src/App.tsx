@@ -31,7 +31,8 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "register",
-				element: <Forms.RegisterForm/>
+				element: <Forms.RegisterForm/>,
+				action: Router.register.action
 			}
 		]
 	}	
