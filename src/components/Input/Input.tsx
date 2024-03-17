@@ -1,15 +1,17 @@
 import { HTMLInputTypeAttribute } from "react";
+import { ActionData, FormErrors } from "../../types";
 import "./Input.css"
 
-interface InputProps {
+interface InputProps<Data> {
     type: HTMLInputTypeAttribute
-    name: string
+    name: keyof Data
     label: string
     placeholder?: string
+    errors?: ActionData<Data>
 }
 
-function Input(props: InputProps) {
-    const { type, name, label, placeholder } = props
+function Input<Data>(props: InputProps<Data>) {
+    const { type, name, label, placeholder, errors } = props
 
     let defaultValue: string
     if (placeholder !== undefined) {
@@ -18,13 +20,23 @@ function Input(props: InputProps) {
         defaultValue = label
     }
 
+    let errorMsg = ""
+    if (errors) {
+        if (name in errors) {
+            errorMsg = (errors as FormErrors<Data>)[name]
+        }
+    }
+
     return (
-        <input 
-            type={type} 
-            name={name} 
-            aria-label={label}
-            placeholder={defaultValue}
-        />
+        <div className="form-field">
+            <input 
+                type={type} 
+                name={String(name)} 
+                aria-label={label}
+                placeholder={defaultValue}
+            />
+            <p className="form-error">{errorMsg}</p>
+        </div>
     )
 }
 

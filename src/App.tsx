@@ -1,7 +1,6 @@
 import { 
 	RouterProvider, 
-	createBrowserRouter, 
-	redirect
+	createBrowserRouter
 } from 'react-router-dom'
 import Forms from "./forms"
 import Layouts from './layouts'
@@ -10,14 +9,16 @@ import Router from './routes'
 const router = createBrowserRouter([
 	{
 		path: "/",
-		loader: () => redirect("/auth/login")
+		loader: Router.home.loader,
+		element: <></>
 	},
 	{
 		path: "/auth",
 		element: <Layouts.Credentials/>,
+		loader: Router.login.loader,
 		children: [
 			{
-				path: "login",
+				path: "login",				
 				element: <Forms.LoginForm/>,
 				action: Router.login.action
 			},
@@ -26,10 +27,7 @@ const router = createBrowserRouter([
 				element: <Forms.RegisterForm/>
 			}
 		]
-	},
-	{
-		path: "/home"
-	}
+	}	
 ])
 
 function App() {

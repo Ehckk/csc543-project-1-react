@@ -25,3 +25,11 @@
     margin: auto;
     max-width: 20rem;
 }
+
+.form-message {
+    text-align: center;
+    min-height: 1rem;
+    line-height: 1;
+    font-size: 1rem;
+    color: var(--e-0);
+}

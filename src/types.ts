@@ -36,6 +36,12 @@ interface PostWithReplies extends Post {
     replies: Post[]
 }
 
+type FormErrors<Data> = {
+    [key in keyof Data]: string
+}
+
+type ActionData<Data> = FormErrors<Data> | ApiResponse | undefined
+
 export type {
     User,
     Registration,
@@ -43,5 +49,7 @@ export type {
     Post,
     PostWithReplies,
     CreatePost,
-    ApiResponse
+    ApiResponse,
+    FormErrors,
+    ActionData
 }

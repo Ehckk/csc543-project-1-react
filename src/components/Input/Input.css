@@ -14,3 +14,16 @@ input::placeholder {
     color: var(--g-0);
 }
 
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem
+}
+
+.form-error {
+    text-align: center;
+    min-height: 1rem;
+    line-height: 1;
+    font-size: 1rem;
+    color: var(--e-0);
+}
