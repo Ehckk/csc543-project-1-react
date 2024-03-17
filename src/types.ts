@@ -9,6 +9,10 @@ interface Credentials {
     password?: string
 }
 
+interface ApiResponse {
+    message: string
+}
+
 interface Registration extends Credentials {
     confirm: string
     display_name: string
@@ -38,5 +42,6 @@ export type {
     Credentials,
     Post,
     PostWithReplies,
-    CreatePost
+    CreatePost,
+    ApiResponse
 }
