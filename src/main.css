@@ -32,7 +32,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--l-0);
+    background-color: var(--l-1);
 }
 
 #root {    

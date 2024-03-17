@@ -3,5 +3,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--l-1);
+    background-color: var(--l-2);
+    box-shadow: 0 1px 3px var(--d-1);
 }

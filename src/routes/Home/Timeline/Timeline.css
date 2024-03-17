@@ -1,0 +1,8 @@
+.timeline-header {
+    position: sticky;
+    background-color: var(--l-2);
+    padding: .5rem;
+    border-radius: .5rem;
+    top: 0;
+    box-shadow: 0 1px 3px var(--g-0);
+}

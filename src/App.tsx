@@ -1,6 +1,6 @@
 import { 
 	RouterProvider, 
-	createBrowserRouter
+	createBrowserRouter,
 } from 'react-router-dom'
 import Forms from "./forms"
 import Layouts from './layouts'
@@ -9,10 +9,27 @@ import Router from './routes'
 const router = createBrowserRouter([
 	{
 		path: "/",
-		action: Router.home.action,
+		loader: Router.loader,
 		element: <Layouts.Home/>,
 		children: [
-
+			{
+				path: ":postId",
+				children: [
+					{
+						path: "reply"
+					},
+					{
+						path: "",
+						element: <></>
+					},
+				]
+			},
+			{
+				path: "posts",
+				action: Router.home.action,
+				loader: Router.home.loader,
+				element: <Router.home.Timeline/>
+			}
 		]
 	},
 	{

@@ -23,8 +23,7 @@ interface Registration extends Credentials {
 } 
 
 interface CreatePost {
-    author_id: string
-    content: string
+    content?: string
 }
 
 interface Post {
