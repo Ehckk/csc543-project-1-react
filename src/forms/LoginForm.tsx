@@ -1,9 +1,16 @@
 import { Form, Link } from "react-router-dom";
 import Components from "../components";
+import "./Forms.css"
 
 function LoginForm() {
     return (
-        <Form method="post" action="/login" id="login-form">
+        <Form 
+            name="login" 
+            method="post" 
+            action="/login" 
+            id="login-form" 
+            className="credentials-form"
+        >
             <h1 className="form-title">Log In</h1>
             <div className="form-body">
                 <Components.Input
@@ -16,6 +23,8 @@ function LoginForm() {
                     name={"password"}
                     label={"Password"}
                 />
+            </div>
+            <div className="form-buttons">
                 <button type="submit">
                     Log In
                 </button>

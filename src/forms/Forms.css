@@ -1,0 +1,27 @@
+.form-title {
+    margin-bottom: .5rem;
+}
+
+.form-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.form-buttons {
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.credentials-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+    margin: auto;
+    max-width: 20rem;
+}

@@ -1,4 +1,5 @@
 import { HTMLInputTypeAttribute } from "react";
+import "./Input.css"
 
 interface InputProps {
     type: HTMLInputTypeAttribute
@@ -18,7 +19,12 @@ function Input(props: InputProps) {
     }
 
     return (
-        <input type={type} name={name} aria-label={label} placeholder={defaultValue}/>
+        <input 
+            type={type} 
+            name={name} 
+            aria-label={label}
+            placeholder={defaultValue}
+        />
     )
 }
 
