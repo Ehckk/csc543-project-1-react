@@ -1,3 +1,11 @@
+interface UserId {
+    user_id: number
+}
+
+interface PostId {
+    post_id: number
+}
+
 interface User {
     user_id: number
     username: string
@@ -10,8 +18,8 @@ interface Credentials {
 }
 
 interface Registration extends Credentials {
-    confirm?: string
-    display_name?: string
+    confirm: string
+    display_name: string
 } 
 
 interface PostPartial {
@@ -19,10 +27,11 @@ interface PostPartial {
     reply_id: number | null
     content: string
     created: string
+    author: User | null
     author_id: number 
-    author: User
     likes: { user_id: number }[]
     reply_count: number
+    has_liked: boolean
 }
 
 interface Post extends PostPartial {
@@ -30,14 +39,28 @@ interface Post extends PostPartial {
 }
 
 interface CreatePost {
-    content?: string
+    content: string
+}
+
+interface LikePartial {
+    user_id: number,
+    post_id: number
+}
+
+interface Like {
+    user: User
+    post: PostPartial
 }
 
 export type {
+    UserId,
     User,
     Registration,
     Credentials,
-    Post,
     PostPartial,
-    CreatePost
+    Post,
+    PostId,
+    CreatePost,
+    LikePartial,
+    Like
 }

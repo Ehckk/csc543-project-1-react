@@ -5,7 +5,7 @@ const BASE_API_URL = "http://localhost:7000/api"
 interface ApiArgs<Req> {
     values?: Req
     endpoint: string
-    method: "GET" | "POST"
+    method: "GET" | "POST" | "DELETE"
     token?: boolean
 }
 

@@ -1,54 +1,52 @@
-import { PostPartial } from "../../types"
+import { useEffect, useState } from "react"
+import { fetchFromApi } from "../../api"
+import { PostResponse, PostPartial, PostId } from "../../types"
+import utils from "../../utils"
+import LikeButton from "../LikeButton"
 import "./Post.css"
 
 interface PostProps {
     post: PostPartial
 }
 
-function Post(props: PostProps) {
-    const { post } = props
-    const { author, content, created, likes, reply_count } = post
-    const { display_name } = author
 
-    const date = new Date(created)
-    const dateStr = date.toLocaleDateString()
-    const timeStr = date.toLocaleTimeString([], { hour: "2-digit", hour12: true, minute: "2-digit" })
-    const fmtDate = `${dateStr} ${timeStr}`
+function Post(props: PostProps) {
+    const { post: initial } = props
+    const [post, setPost] = useState<PostPartial>(initial)
+    const [liked, setLiked] = useState<boolean>(initial.has_liked)
+
+    useEffect(() => {
+        setLiked(post.has_liked)
+    }, [post.has_liked])
+
+    async function likePost() {
+        const args = { token: true, values: { post_id: post.post_id } }
+        let key: string
+        let method: "POST" | "DELETE"
+        if (!liked) {
+            key = "add"
+            method = "POST"
+        } else {
+            key = "remove"
+            method = "DELETE"
+        } 
+        console.log(liked, key, method); 
+        const { data } = await fetchFromApi<PostId, PostResponse>({ endpoint: `likes/${key}`, method, ...args })
+        setPost(data)
+    }
+    console.log(liked);
+    
 
     return (
         <div className="post">
-            <span className="post-author">
-                {display_name}
-            </span>
-            <p className="post-content">
-                {content}
-                </p>
+            <span className="post-author">{post.author?.display_name}</span>
+            <p className="post-content">{post.content}</p>
             <div className="post-engagement">
-                <div className="post-interacts">
-                    <div className="likes">
-                        <img 
-                            src="heart.svg" 
-                            alt="heart"
-                            height={16}
-                            width={16}
-                        />
-                        <span className="like-count">
-                            {likes.length}
-                        </span> 
-                    </div>
-                    <div className="replies">
-                        <img 
-                            src="comment.svg" 
-                            alt="comment"
-                            height={16}
-                            width={16}
-                        />
-                        <span className="reply-count">
-                            {reply_count}
-                        </span>
-                    </div>
+                <div className="likes">
+                    <LikeButton likePost={likePost}/>
+                    <span className="like-count">{post.likes.length}</span> 
                 </div>
-                <p>{fmtDate}</p>
+                <p>{utils.date.createdDate(post.created)}</p>
             </div>
         </div>
     )

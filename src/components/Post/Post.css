@@ -25,6 +25,7 @@
 .post-engagement {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .post-interacts {
@@ -35,7 +36,7 @@
 .likes, .replies {
     display: flex;
     align-items: center;
-    gap: .25rem;
+    gap: .5rem;
 }
 
 .like-count, .reply-count {

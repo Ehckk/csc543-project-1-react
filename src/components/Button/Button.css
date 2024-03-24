@@ -1,4 +1,4 @@
-button {
+.btn-large, .btn-large {
     appearance: none;
     outline: none;
     border-color: var(--b-0);

@@ -1,3 +1,5 @@
+import { Post } from "./Api"
+
 interface ApiResponse {
     message: string
 }
@@ -12,8 +14,11 @@ type FormErrors<Data> = {
 
 type ActionData<Data> = FormErrors<Data> | ApiResponse | undefined
 
+interface PostResponse extends Post, ApiResponse {}
+
 export type {
     ApiResponse,
+    PostResponse,
     FormErrors,
     ActionData,
     Token
