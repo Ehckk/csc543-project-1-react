@@ -1,16 +1,21 @@
 import "./LikeButton.css"
 
 interface LikeButtonProps {
+    liked: boolean
     likePost: () => Promise<void>
 
 }
 
 function LikeButton(props: LikeButtonProps) {
-    const { likePost } = props
+    const { liked, likePost } = props
+
+    const classList = ["like-button"]
+    if (liked) {
+        classList.push("liked")
+    }
 
     return (
-        <button className="like-button" onClick={likePost}>
-        </button>
+        <button className={classList.join(" ")} onClick={likePost}/>
     )
 }
 

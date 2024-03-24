@@ -43,7 +43,7 @@ function Post(props: PostProps) {
             <p className="post-content">{post.content}</p>
             <div className="post-engagement">
                 <div className="likes">
-                    <LikeButton likePost={likePost}/>
+                    <LikeButton liked={liked} likePost={likePost}/>
                     <span className="like-count">{post.likes.length}</span> 
                 </div>
                 <p>{utils.date.createdDate(post.created)}</p>

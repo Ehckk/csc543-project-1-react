@@ -3,6 +3,7 @@
     border: none;
     box-shadow: 0 1px 3px vaR(--d-0);
     display: inline-block;
+    color: var(--g-0);
     background-color: var(--l-1);
     border-radius: 50%;
 }
@@ -14,5 +15,5 @@
 }
 
 .like-button.liked::before {
-    color: var(--e-1);
+    color: var(--e-0);
 }
